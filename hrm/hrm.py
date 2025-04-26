@@ -47,7 +47,7 @@ class HRM:
 
     def applyLeave(self):
 
-        time.sleep(2)
+        time.sleep(4)
 
         self.driver.get(const.APPLY_LEAVE)
 
