@@ -91,13 +91,13 @@ class HRM:
 
                 self.driver.find_element(By.XPATH, '(//button[@type="button"])[6]').click()
 
+                time.sleep(2)
+
+                self.driver.get(const.APPLY_LEAVE)                
+
         except:
 
             pass
-
-        time.sleep(2)
-
-        self.driver.get(const.APPLY_LEAVE)
 
         self.driver.find_element(By.CSS_SELECTOR, 'div[class="oxd-select-text oxd-select-text--active"]').click()
 
