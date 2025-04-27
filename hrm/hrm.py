@@ -51,53 +51,60 @@ class HRM:
 
         self.driver.get(const.APPLY_LEAVE)
 
+        error = "No Error"
+
         try:
 
             error = self.driver.find_element(By.CSS_SELECTOR, 'p[class="oxd-text oxd-text--p oxd-text--subtitle-2"]').text
 
-            if error == "No Leave Types with Leave Balance":
-
-                self.driver.find_element(By.CSS_SELECTOR, "li.oxd-topbar-body-nav-tab.--parent:nth-of-type(1)").click()
-
-                self.driver.find_element(By.XPATH, '(//span[@class="oxd-topbar-body-nav-tab-item"]) [1]').click()
-
-                self.driver.find_element(By.XPATH, '(//a[@class="oxd-topbar-body-nav-tab-link"])[1]').click()
-
-                user_name = self.driver.find_element(By.CSS_SELECTOR, 'p[class="oxd-userdropdown-name"]').text
-
-                self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder="Type for hints..."]').send_keys(user_name)
-
-                time.sleep(3)
-
-                self.driver.find_element(By.CSS_SELECTOR, 'div[role="listbox"]').click()
-
-                time.sleep(5)
-
-                self.driver.find_element(By.XPATH, '(//div[@class="oxd-select-text-input"])[1]').click()
-
-                options = self.driver.find_elements(By.XPATH, '//div[@role="listbox"]/*')
-
-                for i in options:
-
-                    if i.text == "CAN - FMLA":
-
-                        i.click()
-
-                        break
-
-                self.driver.find_element(By.XPATH, '(//input[@class="oxd-input oxd-input--active"])[2]').send_keys(3)
-
-                self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
-
-                self.driver.find_element(By.XPATH, '(//button[@type="button"])[6]').click()
-
-                time.sleep(2)
-
-                self.driver.get(const.APPLY_LEAVE)                
+            print(error)
 
         except:
 
             pass
+
+
+        if error == "No Leave Types with Leave Balance":
+
+            self.driver.find_element(By.XPATH, '(//span[@class="oxd-topbar-body-nav-tab-item"]) [1]').click()
+
+            self.driver.find_element(By.XPATH, '(//a[@class="oxd-topbar-body-nav-tab-link"])[1]').click()
+
+            user_name = self.driver.find_element(By.CSS_SELECTOR, 'p[class="oxd-userdropdown-name"]').text
+
+            self.driver.find_element(By.CSS_SELECTOR, 'input[placeholder="Type for hints..."]').send_keys(user_name)
+
+            time.sleep(3)
+
+            self.driver.find_element(By.CSS_SELECTOR, 'div[role="listbox"]').click()
+
+            time.sleep(5)
+
+            self.driver.find_element(By.XPATH, '(//div[@class="oxd-select-text-input"])[1]').click()
+
+            options = self.driver.find_elements(By.XPATH, '//div[@role="listbox"]/*')
+
+            for i in options:
+
+                if i.text == "CAN - FMLA":
+
+                    i.click()
+
+                    break
+
+            self.driver.find_element(By.XPATH, '(//input[@class="oxd-input oxd-input--active"])[2]').send_keys(3)
+
+            self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
+
+            self.driver.find_element(By.XPATH, '(//button[@type="button"])[6]').click()
+
+            time.sleep(2)
+
+            self.driver.get(const.APPLY_LEAVE)                
+
+
+
+
 
         self.driver.find_element(By.CSS_SELECTOR, 'div[class="oxd-select-text oxd-select-text--active"]').click()
 
