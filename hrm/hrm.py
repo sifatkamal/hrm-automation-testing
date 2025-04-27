@@ -98,10 +98,7 @@ class HRM:
 
             time.sleep(2)
 
-            self.driver.get(const.APPLY_LEAVE)                
-
-
-
+            self.driver.get(const.APPLY_LEAVE)
 
 
         self.driver.find_element(By.CSS_SELECTOR, 'div[class="oxd-select-text oxd-select-text--active"]').click()
