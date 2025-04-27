@@ -57,8 +57,6 @@ class HRM:
 
             error = self.driver.find_element(By.CSS_SELECTOR, 'p[class="oxd-text oxd-text--p oxd-text--subtitle-2"]').text
 
-            print(error)
-
         except:
 
             pass
